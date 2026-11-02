@@ -1,0 +1,147 @@
+/* 
+ * ESTIEM LG Warsaw - Custom Style Supplement
+ * Complements TailwindCSS with custom animations, transitions, and polish.
+ */
+
+/* Import Google Fonts - Inter & Outfit for premium look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Outfit:wght@300;400;500;600;700;900&display=swap');
+
+/* Smooth Scroll behavior across sections */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom premium scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #004539;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #006655;
+}
+
+/* Accent selection styling */
+::selection {
+    background-color: #004539;
+    color: #ffffff;
+}
+
+/* Font override */
+body {
+    font-family: 'Inter', 'Outfit', sans-serif;
+}
+
+/* Nav links custom hover underline effect */
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #004539;
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Custom animation for member cards */
+.member-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background-color 0.3s ease, 
+                border-color 0.3s ease,
+                box-shadow 0.4s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(230, 238, 237, 0.3);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Premium fly-in animation for members grid and bio display */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Interactive paper plane flight animation */
+@keyframes flyAcross {
+    0% {
+        transform: translate(-10vw, 50px) rotate(15deg) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(50vw, -120px) rotate(0deg) scale(1.1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(110vw, 50px) rotate(-15deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+.plane-fly {
+    display: inline-block;
+    animation: flyAcross 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Custom interactive styling for the 'Podróże' trigger word */
+h1 span.text-estiemLight {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+h1 span.text-estiemLight:hover {
+    color: #004539;
+}
+
+h1 span.text-estiemLight::after {
+    content: '✈️';
+    position: absolute;
+    font-size: 0.3em;
+    top: -15px;
+    right: -20px;
+    opacity: 0;
+    transform: rotate(45deg) translate(-10px, 10px);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+h1 span.text-estiemLight:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(0, 0);
+}

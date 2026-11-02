@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTIEM LG Warsaw | European Students of IEM</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        estiemGreen: '#004539',
+                        estiemLight: '#006655',
+                        estiemMint: '#e6eeed'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-gray-900 font-['Inter'] overflow-x-hidden">
+
+    <div id="plane-container" class="fixed top-1/4 left-0 w-full pointer-events-none z-50 opacity-0 transition-opacity duration-500">
+        <div id="plane" class="text-5xl">✈️</div>
+    </div>
+
+    <nav class="fixed w-full z-[60] bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-estiemGreen rounded-lg flex items-center justify-center text-white font-bold">E</div>
+                <div class="text-2xl font-black text-estiemGreen tracking-tighter uppercase">ESTIEM <span class="font-light">LG Warsaw</span></div>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium items-center text-xs uppercase tracking-widest">
+                <a href="#events" class="hover:text-estiemGreen transition">Eventy</a>
+                <a href="#delta" class="hover:text-estiemGreen transition">Delta Region</a>
+                <a href="#board" class="hover:text-estiemGreen transition">Zarząd</a>
+                <a href="#socials" class="hover:text-estiemGreen transition">Kontakt</a>
+                <a href="https://estiem.org" target="_blank" class="text-gray-400 hover:text-estiemGreen">Portal ↗</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-20 bg-gradient-to-b from-estiemMint to-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center z-10" data-aos="zoom-out">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight text-estiemGreen">Inżynieria. <br>Zarządzanie. <span class="text-estiemLight">Podróże.</span></h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">Działamy w ramach <strong>Eventle</strong> na Politechnice Warszawskiej. Łączymy ambicje z europejskimi możliwościami.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#socials" class="bg-estiemGreen text-white px-12 py-4 rounded-2xl font-bold shadow-2xl hover:scale-105 transition-all uppercase tracking-widest">Dołącz do nas</a>
+                <a href="#events" class="bg-white border border-gray-200 text-estiemGreen px-12 py-4 rounded-2xl font-bold hover:bg-gray-50 transition-all uppercase tracking-widest">Nasze Eventy</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-black text-estiemGreen mb-12" data-aos="fade-right">Nasze Ostatnie Eventy</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+                <div class="group overflow-hidden rounded-[32px] shadow-lg relative h-[400px]" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-estiemGreen via-transparent to-transparent p-8 flex flex-col justify-end">
+                        <h3 class="text-2xl font-bold">LG Exchange</h3>
+                        <p class="text-sm opacity-0 group-hover:opacity-100 transition duration-500">Wymiana studencka z innym miastem Europy.</p>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-[32px] shadow-lg relative h-[400px]" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-estiemGreen via-transparent to-transparent p-8 flex flex-col justify-end">
+                        <h3 class="text-2xl font-bold">Lean Academy</h3>
+                        <p class="text-sm opacity-0 group-hover:opacity-100 transition duration-500">Warsztaty merytoryczne z branżą.</p>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-[32px] shadow-lg relative h-[400px]" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-estiemGreen via-transparent to-transparent p-8 flex flex-col justify-end">
+                        <h3 class="text-2xl font-bold">Delta Council</h3>
+                        <p class="text-sm opacity-0 group-hover:opacity-100 transition duration-500">Spotkanie decyzyjne regionu Delta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="delta" class="py-24 bg-estiemMint/40">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+            <div data-aos="fade-right">
+                <div class="relative bg-white p-12 rounded-[48px] shadow-sm border border-estiemGreen/5 flex items-center justify-center min-h-[300px]">
+                    <span class="text-estiemGreen font-black text-2xl uppercase tracking-widest opacity-20">Delta Region Logo</span>
+                    <img src="img/logo_delta.png" class="absolute max-h-32">
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="text-4xl font-black text-estiemGreen mb-6 underline decoration-estiemLight decoration-4 underline-offset-8">Delta Region</h2>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">Jako ESTIEM LG Warsaw jesteśmy częścią regionu Delta. Współpracujemy z grupami m.in. z Niemiec i Polski, budując sieć wymiany wiedzy IEM.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-white text-estiemGreen rounded-full text-xs font-bold shadow-sm">Berlin</span>
+                    <span class="px-4 py-2 bg-white text-estiemGreen rounded-full text-xs font-bold shadow-sm">Dresden</span>
+                    <span class="px-4 py-2 bg-white text-estiemGreen rounded-full text-xs font-bold shadow-sm">Warszawa</span>
+                    <span class="px-4 py-2 bg-white text-estiemGreen rounded-full text-xs font-bold shadow-sm">Gdańsk</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="board" class="py-24 bg-estiemGreen text-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black mb-4">Board of LG Warsaw</h2>
+            <p class="opacity-70 mb-16 italic font-light">Kliknij zdjęcie grupowe, by nas poznać</p>
+            
+            <div class="flex flex-col items-center">
+                <div class="relative z-10 w-full max-w-4xl group cursor-pointer overflow-hidden rounded-[40px] border-2 border-white/10" onclick="openBoard()">
+                    <img src="img/zarzad_grupa.jpg" class="w-full transition duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80'">
+                    <div class="absolute inset-0 bg-estiemGreen/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <div class="bg-white text-estiemGreen px-8 py-3 rounded-full font-bold uppercase tracking-widest shadow-xl">Pokaż członków</div>
+                    </div>
+                </div>
+
+                <div id="members-grid" class="hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-16 w-full animate-fade-in">
+                    <div class="member-card p-6 bg-white/5 rounded-[32px] border border-white/10 hover:bg-white/10 transition cursor-pointer" onclick="showBio('Jan Kowalski', 'Local President', 'Odpowiada za strategię i kontakt z siecią europejską.')">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jan" class="w-20 h-20 mx-auto rounded-2xl mb-4 border border-white/20">
+                        <h4 class="font-bold text-sm">Jan</h4>
+                        <p class="text-[10px] uppercase text-estiemMint opacity-70">President</p>
+                    </div>
+                    </div>
+
+                <div id="bio-display" class="hidden mt-12 p-8 bg-white text-estiemGreen rounded-[40px] max-w-2xl w-full text-left shadow-2xl animate-fade-in border border-estiemMint relative">
+                    <button onclick="document.getElementById('bio-display').classList.add('hidden')" class="absolute top-6 right-8 text-2xl font-light">×</button>
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div id="bio-img" class="w-32 h-32 bg-estiemMint rounded-3xl flex-shrink-0 overflow-hidden"></div>
+                        <div>
+                            <h3 id="bio-name" class="text-2xl font-black mb-1"></h3>
+                            <p id="bio-role" class="text-estiemLight font-bold mb-4 uppercase text-xs tracking-widest"></p>
+                            <p id="bio-text" class="text-gray-600 leading-relaxed text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="socials" class="py-24 bg-gray-50 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-black text-estiemGreen mb-8">Napisz do nas!</h2>
+                    <p class="text-lg text-gray-500 mb-12">Chcesz wesprzeć projekty LG Warsaw? A może chcesz do nas dołączyć? Czekamy na wiadomość.</p>
+                    <a href="mailto:lg_warsaw@estiem.org" class="flex items-center gap-4 p-8 bg-white rounded-[32px] shadow-sm border border-gray-100 hover:border-estiemGreen transition group">
+                        <div class="w-14 h-14 bg-estiemMint text-estiemGreen rounded-2xl flex items-center justify-center text-2xl group-hover:bg-estiemGreen group-hover:text-white transition"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-bold uppercase">Kontakt mailowy</p>
+                            <p class="font-bold text-xl">lg_warsaw@estiem.org</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="bg-white p-6 rounded-[40px] shadow-inner border border-gray-100 min-h-[400px]">
+                    <div class="text-center mb-4 text-xs font-bold text-gray-300 uppercase tracking-widest">Ostatnie posty na IG</div>
+                    
+                    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+                    <iframe src="https://lightwidget.com/widgets/8e5586cb10fe519c8a4b0db2a2d070ea.html" 
+                            scrolling="no" 
+                            allowtransparency="true" 
+                            class="lightwidget-widget" 
+                            style="width:100%;border:0;overflow:hidden;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- test comment -->
+
+    <footer class="py-12 bg-white text-center border-t border-gray-50">
+        <p class="text-gray-400 text-xs uppercase tracking-[0.3em]">ESTIEM LG Warsaw © 2026</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
