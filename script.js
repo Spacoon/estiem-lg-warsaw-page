@@ -3,9 +3,50 @@
  * Handles board visualization, dynamic data rendering, animations, and interactions.
  */
 
-// Board Members Database
+// Placeholder board members; replace names, roles, bios, and photos with the real details.
 const boardMembers = [
-
+    {
+        name: 'Jan Kowalski',
+        role: 'Local President',
+        bio: 'Odpowiada za strategię grupy i kontakt z europejską siecią ESTIEM.',
+        image: 'https://i.pravatar.cc/240?img=12'
+    },
+    {
+        name: 'Anna Nowak',
+        role: 'Vice President',
+        bio: 'Wspiera pracę zarządu i koordynuje realizację wspólnych celów.',
+        image: 'https://i.pravatar.cc/240?img= 여성'
+    },
+    {
+        name: 'Piotr Wiśniewski',
+        role: 'Treasurer',
+        bio: 'Dba o budżet i sprawy finansowe grupy.',
+        image: 'https://i.pravatar.cc/240?img=14'
+    },
+    {
+        name: 'Maria Zielińska',
+        role: 'PR Responsible',
+        bio: 'Zajmuje się komunikacją i promocją działań LG Warsaw.',
+        image: 'https://i.pravatar.cc/240?img= महिला'
+    },
+    {
+        name: 'Michał Wójcik',
+        role: 'HR Responsible',
+        bio: 'Wspiera członków grupy i dba o dobrą współpracę w zespole.',
+        image: 'https://i.pravatar.cc/240?img=15'
+    },
+    {
+        name: 'Katarzyna Kamińska',
+        role: 'Activities Responsible',
+        bio: 'Koordynuje wydarzenia i aktywności organizowane przez grupę.',
+        image: 'https://i.pravatar.cc/240?img= महिला'
+    },
+    {
+        name: 'Tomasz Lewandowski',
+        role: 'IT Responsible',
+        bio: 'Odpowiada za narzędzia cyfrowe i wsparcie techniczne.',
+        image: 'https://i.pravatar.cc/240?img=17'
+    }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Populate Board Members Grid
+    // 2. Populate and show Board Members Grid
     populateMembers();
 
     // 3. Setup Interactive Plane Animation triggers
@@ -32,28 +73,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Populates the board grid dynamically using the boardMembers database.
+ * Populates and displays the board grid using the boardMembers database.
  */
 function populateMembers() {
     const grid = document.getElementById('members-grid');
     if (!grid) return;
 
     grid.innerHTML = boardMembers.map((member, index) => {
-        // We clean quotes for safe parameter passing in onclick
         const safeBio = member.bio.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        const safeImage = member.image.replace(/'/g, "%27");
         return `
             <div class="member-card p-6 bg-white/5 rounded-[32px] border border-white/10 hover:bg-white/10 transition cursor-pointer"
-                 onclick="showBio('${member.name}', '${member.role}', '${safeBio}')"
-                 data-aos="fade-up" 
+                 onclick="showBio('${member.name}', '${member.role}', '${safeBio}', '${safeImage}')"
+                 data-aos="fade-up"
                  data-aos-delay="${index * 100}">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${member.avatarSeed}"
-                     class="w-20 h-20 mx-auto rounded-2xl mb-4 border border-white/20"
-                     alt="${member.name}">
-                <h4 class="font-bold text-sm">${member.name.split(' ')[0]}</h4>
+                <img src="${member.image}"
+                     class="w-20 h-20 mx-auto rounded-2xl mb-4 border border-white/20 object-cover"
+                     alt="Zdjęcie: ${member.name}">
+                <h4 class="font-bold text-sm">${member.name}</h4>
                 <p class="text-[10px] uppercase text-estiemMint opacity-70">${member.role}</p>
             </div>
         `;
     }).join('');
+
+    // Show all seven placeholder profiles immediately, without requiring a click on the group photo.
+    grid.classList.remove('hidden');
 }
 
 /**
@@ -65,28 +109,21 @@ function openBoard() {
 
     if (grid.classList.contains('hidden')) {
         grid.classList.remove('hidden');
-        // Refresh AOS to calculate offsets for newly visible items
         if (typeof AOS !== 'undefined') {
-            setTimeout(() => {
-                AOS.refresh();
-            }, 100);
+            setTimeout(() => AOS.refresh(), 100);
         }
-        // Smoothly scroll down to the members list
         grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } else {
         grid.classList.add('hidden');
-        // Close bio display if active
         const bioDisplay = document.getElementById('bio-display');
-        if (bioDisplay) {
-            bioDisplay.classList.add('hidden');
-        }
+        if (bioDisplay) bioDisplay.classList.add('hidden');
     }
 }
 
 /**
  * Displays detailed information about a selected member.
  */
-function showBio(name, role, text) {
+function showBio(name, role, text, image) {
     const bioDisplay = document.getElementById('bio-display');
     const bioName = document.getElementById('bio-name');
     const bioRole = document.getElementById('bio-role');
@@ -98,18 +135,11 @@ function showBio(name, role, text) {
     bioName.textContent = name;
     bioRole.textContent = role;
     bioText.textContent = text;
-
-    // Set avatar based on first name seed
-    const seed = name.split(' ')[0];
     bioImgContainer.innerHTML = `
-        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}" 
-             class="w-full h-full object-cover" 
-             alt="${name}">
+        <img src="${image}" class="w-full h-full object-cover" alt="Zdjęcie: ${name}">
     `;
 
     bioDisplay.classList.remove('hidden');
-    
-    // Smooth scroll down to details
     setTimeout(() => {
         bioDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 50);
@@ -119,7 +149,6 @@ function showBio(name, role, text) {
  * Setup click trigger on the word "Podróże" in the main heading
  */
 function setupPlaneTrigger() {
-    // Find the third highlight word in the main page title (spans)
     const spans = document.querySelectorAll('h1 span.text-estiemLight');
     spans.forEach(span => {
         if (span.textContent.includes('Podróże')) {
@@ -137,18 +166,12 @@ function triggerPlaneFlight() {
     const plane = document.getElementById('plane');
     if (!planeContainer || !plane) return;
 
-    // Reset class & visibility
     plane.classList.remove('plane-fly');
     planeContainer.classList.remove('opacity-0');
     planeContainer.style.opacity = '1';
-
-    // Trigger reflow to restart css animation
     void plane.offsetWidth;
-
-    // Start flying
     plane.classList.add('plane-fly');
 
-    // Fade out container after flight completes
     setTimeout(() => {
         planeContainer.classList.add('opacity-0');
         planeContainer.style.opacity = '0';
